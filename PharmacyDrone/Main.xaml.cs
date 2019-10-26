@@ -34,6 +34,7 @@ namespace PharmacyDrone
             if (i ==0)
             {
                 btnDispatch.IsEnabled = false;
+                btnPatients.IsEnabled = false;
 
             }
             else if(i==1)
