@@ -31,13 +31,13 @@ namespace PharmacyDrone
 
     
 
-            if (i ==0)
+            if (i ==0) //If patient
             {
                 btnDispatch.IsEnabled = false;
                 btnPatients.IsEnabled = false;
 
             }
-            else if(i==1)
+            else if(i==1) //If admin
             {
                 btnOrder.IsEnabled = false;
             }

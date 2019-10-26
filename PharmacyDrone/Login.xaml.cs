@@ -97,10 +97,14 @@ namespace PharmacyDrone
                 notifier.success("Account created Succesfully");
                 System.Threading.Thread.Sleep(750);
                 notifier.information("an Admin will activate your account shortly");
+                txtUsername.Clear();
+                txtPassword.Clear();
             }
             else
             {
                 notifier.error("Error creating your account");
+                txtUsername.Clear();
+                txtPassword.Clear();
             }
         }
     }
