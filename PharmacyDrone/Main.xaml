@@ -1,0 +1,80 @@
+﻿<Window x:Class="PharmacyDrone.Main"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PharmacyDrone"
+        mc:Ignorable="d"
+        Title="Welcome to Pharmacy Drone" Height="565.287" Width="927.238"  ResizeMode="NoResize" FontFamily="Microsoft YaHei Light" Background="#FFB2ADAD" Closed="Window_Closed">
+    <Grid Margin="0,0,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+
+
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+
+
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Vertical" >
+            <Button x:Name="btnDispatch" HorizontalAlignment="Left" VerticalAlignment="Top" TabIndex="1" ToolTip="Click here to view Dispatch"
+         Grid.Row="0" Width="100" BorderBrush="#27B331" Background="{x:Null}" Click="BtnDispatch_Click" >
+                <StackPanel>
+                    <Image Source="C:\Users\Brandon-Lee\source\repos\PharmacyDrone\PharmacyDrone\images\dispatch.png" HorizontalAlignment="Center" VerticalAlignment="Top" Height="72" Width="81"  />
+                    <Label Content="Dispatch" HorizontalAlignment="Center" FontSize="16" />
+                </StackPanel>
+            </Button>
+
+
+            <Button x:Name="btnPatients" HorizontalAlignment="Left" VerticalAlignment="Top" TabIndex="2" ToolTip="Click here to view Patient Information"
+         Grid.Row="0" Width="100" BorderBrush="#27B331" Background="{x:Null}" Click="BtnPatients_Click" >
+                <StackPanel>
+                    <Image Source="C:\Users\Brandon-Lee\source\repos\PharmacyDrone\PharmacyDrone\images\patients.png" HorizontalAlignment="Center" VerticalAlignment="Top" Height="72" Width="81"  />
+                    <Label Content="Patients" HorizontalAlignment="Center" FontSize="16" />
+                </StackPanel>
+            </Button>
+
+            <Button x:Name="btnOrder" HorizontalAlignment="Left" VerticalAlignment="Top" TabIndex="3" ToolTip="Click here to Order" Click="BtnOrder_Click"
+         Grid.Row="0" Width="100" BorderBrush="#27B331" Background="{x:Null}" >
+                <StackPanel>
+                    <Image Source="C:\Users\Brandon-Lee\source\repos\PharmacyDrone\PharmacyDrone\images\order.png" HorizontalAlignment="Center" VerticalAlignment="Top" Height="70" Width="75"  />
+                    <Label Content="Order" HorizontalAlignment="Center" FontSize="16" />
+
+                </StackPanel>
+            </Button>
+
+            <Button x:Name="btnSupplies" HorizontalAlignment="Left" VerticalAlignment="Top" TabIndex="4" ToolTip="Click here to view all Medical Supplies"
+         Grid.Row="0" Width="100" BorderBrush="#27B331" Background="{x:Null}"  Click="BtnSupplies_Click">
+                <StackPanel>
+                    <Image Source="C:\Users\Brandon-Lee\source\repos\PharmacyDrone\PharmacyDrone\images\supplies.png" HorizontalAlignment="Center" VerticalAlignment="Top" Height="70" Width="75"  />
+                    <Label Content="Supplies" HorizontalAlignment="Center" FontSize="16" />
+
+                </StackPanel>
+            </Button>
+
+
+            <Button x:Name="btnLogOut" HorizontalAlignment="Left" VerticalAlignment="Top" TabIndex="8" ToolTip="Click here to log out"
+         Grid.Row="0" Width="100" BorderBrush="#27B331" Background="{x:Null}" Click="BtnLogOut_Click">
+                <StackPanel>
+                    <Image Source="C:\Users\Brandon-Lee\source\repos\PharmacyDrone\PharmacyDrone\images\logOut.png"  Margin="0,5,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Height="65" Width="65"  />
+                    <Label Content="Log Out" HorizontalAlignment="Center" FontSize="16"    />
+
+                </StackPanel>
+            </Button>
+        </StackPanel>
+        <ContentControl x:Name="Cc" Grid.Column="1">
+
+        </ContentControl>
+
+
+
+
+
+
+    </Grid>
+</Window>
+
