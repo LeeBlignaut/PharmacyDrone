@@ -36,57 +36,64 @@ namespace PharmacyDrone
         private void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
 
-            User u = new User();
-            List<User> userList = u.readUsers();
-
-            foreach (User item in userList)
+            if (txtUsername.Text == String.Empty || txtPassword.Password == String.Empty)
             {
-                if (item.Username == txtUsername.Text && item.Password == txtPassword.Password)
+                notifier.error("Fields cannot be empty");
+            }
+            else
+            {
+                User u = new User();
+                List<User> userList = u.readUsers();
+
+
+                foreach (User item in userList)
                 {
-                    flag = true;
-                    switch (item.State)
+                    if (item.Username == txtUsername.Text && item.Password == txtPassword.Password)
                     {
-                        case 1:
-                            {
-                                notifier.warning("Your account is Pending");
+                        flag = true;
+                        switch (item.State)
+                        {
+                            case 1:
+                                {
+                                    notifier.warning("Your account is Pending");
 
-                                break;
-                            }
-                        case 2:
-                            {
-                                accountType = item.AccountType;
-                                userId = item.UserId;
-                               
-                                Main m = new Main();
-                                m.Show();
-                                this.Close();
-                                
+                                    break;
+                                }
+                            case 2:
+                                {
+                                    accountType = item.AccountType;
+                                    userId = item.UserId;
 
+                                    Main m = new Main();
+                                    m.Show();
+                                    this.Close();
+
+
+                                    break;
+                                }
+                            case 3:
+                                {
+                                    notifier.error("Your account is Suspended");
+                                    break;
+                                }
+                            case 4:
+                                {
+                                    notifier.error("Your account is Inactive");
+                                    break;
+                                }
+                            default:
                                 break;
-                            }
-                        case 3:
-                            {
-                                notifier.error("Your account is Suspended");
-                                break;
-                            }
-                        case 4:
-                            {
-                                notifier.error("Your account is Inactive");
-                                break;
-                            }
-                        default:
-                            break;
+                        }
                     }
+
                 }
-              
-            }
 
-            if (!flag)
-            {
-                notifier.error("Username and/or Password is incorrect");
-            }
+                if (!flag)
+                {
+                    notifier.error("Username and/or Password is incorrect");
+                }
 
-           
+            }
         }
 
         private void BtnRegister_Click(object sender, RoutedEventArgs e)
