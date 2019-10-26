@@ -56,7 +56,6 @@ namespace PharmacyDrone
                             case 1:
                                 {
                                     notifier.warning("Your account is Pending");
-
                                     break;
                                 }
                             case 2:
@@ -91,6 +90,8 @@ namespace PharmacyDrone
                 if (!flag)
                 {
                     notifier.error("Username and/or Password is incorrect");
+                    txtUsername.Clear();
+                    txtPassword.Clear();
                 }
 
             }
