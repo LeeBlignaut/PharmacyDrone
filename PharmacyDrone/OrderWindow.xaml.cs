@@ -103,7 +103,7 @@ namespace PharmacyDrone
                 notifier.success("Order Placed Succesfully");
                 cartList.Clear();
                 txtCart.Clear();
-                lblTotal.Content = "Clear";
+                lblTotal.Content = "";
             }
         }
 
