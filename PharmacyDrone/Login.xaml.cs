@@ -103,7 +103,7 @@ namespace PharmacyDrone
             {
                 notifier.success("Account created Succesfully");
                 System.Threading.Thread.Sleep(1500);
-                notifier.information("an Admin will activate your account shortly");
+                notifier.information("The Admin will activate your account shortly");
                 txtUsername.Clear();
                 txtPassword.Clear();
             }
