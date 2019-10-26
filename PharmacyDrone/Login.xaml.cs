@@ -102,7 +102,7 @@ namespace PharmacyDrone
             if (u.insertUser(u))
             {
                 notifier.success("Account created Succesfully");
-                System.Threading.Thread.Sleep(750);
+                System.Threading.Thread.Sleep(1500);
                 notifier.information("an Admin will activate your account shortly");
                 txtUsername.Clear();
                 txtPassword.Clear();
