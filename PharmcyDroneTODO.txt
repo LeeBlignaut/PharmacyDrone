@@ -1,0 +1,24 @@
+#Mo-TODO
+	Welcome Screen is bland
+	-images of drones 
+	-short about us description
+	-users name at top of page
+
+	description box box scrollable
+#End
+
+
+#Brandon-TODO
+	order completion notification
+	-patient gets notified about an order being dispatched 
+	-patients gets notifed few seconds about arrival of drone
+#End
+
+#Damian-TODO
+	login and register seperated
+
+	order
+	-add drone name and id and location in order 
+	-gps location for order
+#End
+
