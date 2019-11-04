@@ -9,13 +9,18 @@ namespace PharmacyDrone.Classes
 {
     class GPSLocation
     {
-        GeoCoordinate gpsLocation;
+        public GeoCoordinate gpsLocation;
+        private GeoCoordinateWatcher watcher = new GeoCoordinateWatcher();
 
         public GeoCoordinate GpsLocation { get => gpsLocation; set => gpsLocation = value; }
 
         public GPSLocation()
         {
 
+        }
+        public GPSLocation(GeoCoordinate coord)
+        {
+            this.gpsLocation = coord;
         }
         public double GetDistance()
         {
@@ -25,20 +30,34 @@ namespace PharmacyDrone.Classes
 
         public void GetCurrentGPSLocation()
         {
-            Notify notify = new Notify();
-            GeoCoordinateWatcher watcher = new GeoCoordinateWatcher();
-            watcher.TryStart(false, TimeSpan.FromMilliseconds(1000));
-            GeoCoordinate coord = watcher.Position.Location;
-            if (coord.IsUnknown != true)
-            {
-                gpsLocation = coord;
-            }
-            else
-            {
-                notify.warning("Failed to retrieve GPS location");
-            }
+            
+            watcher.StatusChanged += Watcher_StatusChanged;
+            watcher.Start();
+            
         }
-
+        public void Watcher_StatusChanged(object sender, GeoPositionStatusChangedEventArgs e)
+        {
+            Notify notify = new Notify();
+            if (e.Status == GeoPositionStatus.Ready)
+            {
+                // Display the latitude and longitude.
+                if (watcher.Position.Location.IsUnknown)
+                {
+                    Console.WriteLine("Cannot find location data");
+                }
+                else
+                {
+                    GeoCoordinate coord =watcher.Position.Location;
+                    if (coord.IsUnknown != true)
+                    {
+                        gpsLocation = coord;
+                    }
+                    else
+                    {
+                        notify.warning("Failed to retrieve GPS location");
+                    }
+                }
+            }
         public override string ToString()
         {
             return "Long : " + gpsLocation.Longitude + " Lat : " + gpsLocation.Latitude;
