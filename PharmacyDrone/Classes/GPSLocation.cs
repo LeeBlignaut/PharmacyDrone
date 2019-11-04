@@ -11,8 +11,10 @@ namespace PharmacyDrone.Classes
     {
         public GeoCoordinate gpsLocation;
         private GeoCoordinateWatcher watcher = new GeoCoordinateWatcher();
+        private double distance;
 
         public GeoCoordinate GpsLocation { get => gpsLocation; set => gpsLocation = value; }
+        public double Distance { get => distance; set => distance = value; }
 
         public GPSLocation()
         {
@@ -22,10 +24,10 @@ namespace PharmacyDrone.Classes
         {
             this.gpsLocation = coord;
         }
-        public double GetDistance()
+        private void GetDistance()
         {
             GeoCoordinate distribution = new GeoCoordinate(26.1394, 28.2468); //OR Tambo
-            return gpsLocation.GetDistanceTo(distribution);
+            distance = gpsLocation.GetDistanceTo(distribution);
         }
 
         public void GetCurrentGPSLocation()
@@ -43,24 +45,19 @@ namespace PharmacyDrone.Classes
                 // Display the latitude and longitude.
                 if (watcher.Position.Location.IsUnknown)
                 {
-                    Console.WriteLine("Cannot find location data");
+                    notify.warning("Failed to retrieve GPS location");
                 }
                 else
                 {
-                    GeoCoordinate coord =watcher.Position.Location;
-                    if (coord.IsUnknown != true)
-                    {
-                        gpsLocation = coord;
-                    }
-                    else
-                    {
-                        notify.warning("Failed to retrieve GPS location");
-                    }
+                    GeoCoordinate coord = watcher.Position.Location;
+                    gpsLocation = coord;
+                    GetDistance();
                 }
             }
+        }
         public override string ToString()
         {
-            return "Long : " + gpsLocation.Longitude + " Lat : " + gpsLocation.Latitude;
+            return "Long : " + gpsLocation.Longitude.ToString() + " Lat : " + gpsLocation.Latitude.ToString();
         }
 
     }
