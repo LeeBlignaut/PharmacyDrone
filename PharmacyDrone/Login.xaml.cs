@@ -97,23 +97,13 @@ namespace PharmacyDrone
             }
         }
 
-        private void BtnRegister_Click(object sender, RoutedEventArgs e)
+        
+
+        private void lblRegister_Click(object sender, RoutedEventArgs e)
         {
-            User u = new User(txtUsername.Text, txtPassword.Password, 0, 1);
-            if (u.insertUser(u))
-            {
-                notifier.success("Account created Succesfully");
-                System.Threading.Thread.Sleep(1500);
-                notifier.information("The Admin will activate your account shortly");
-                txtUsername.Clear();
-                txtPassword.Clear();
-            }
-            else
-            {
-                notifier.error("Error creating your account");
-                txtUsername.Clear();
-                txtPassword.Clear();
-            }
+            Register r = new Register();
+            r.Show();
+            this.Close();
         }
     }
 }
