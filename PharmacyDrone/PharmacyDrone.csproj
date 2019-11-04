@@ -62,6 +62,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Classes\Drone.cs" />
+    <Compile Include="Classes\GPSLocation.cs" />
     <Compile Include="SuppliesWindow.xaml.cs">
       <DependentUpon>SuppliesWindow.xaml</DependentUpon>
     </Compile>

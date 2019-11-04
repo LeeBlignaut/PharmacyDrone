@@ -22,11 +22,18 @@ namespace PharmacyDrone
     public partial class OrderWindow : UserControl
     {
         Notify notifier = new Notify();
+        Drone drone;
         public OrderWindow()
         {
             InitializeComponent();
             MedicalSupply ms = new MedicalSupply();
             List<MedicalSupply> medicalSupplyList = ms.readMedicalSupplies();
+            GPSLocation gpsLocation = new GPSLocation();
+            gpsLocation.GetCurrentGPSLocation();
+            drone = new Drone();
+            drone.GetDrone();
+            lblDrone.Content = drone.ToString();
+            lblLocation.Content = gpsLocation.ToString();
             cmbMedicineList.ItemsSource = medicalSupplyList;
             this.DataContext = medicalSupplyList;
 
@@ -82,6 +89,7 @@ namespace PharmacyDrone
         private void BtnOrder_Click(object sender, RoutedEventArgs e)
         {
             OrderRequest or = new OrderRequest();
+            or.SetDrone(drone.DroneID);
             int num = or.GenerateNum();
             bool flag = false;
 

@@ -144,6 +144,27 @@ namespace PharmacyDrone.DataHandlers
 
 
         }
+        public static bool UpdateOrderState(int userId)
+        {
+            conn.Open();
+
+            OleDbCommand cmd = new OleDbCommand("Update [OrderRequests] Set OrderState = '1' Where UserID = '" + userId + "' AND OrderState = '0'", conn);
+
+            int rowsAffected =  cmd.ExecuteNonQuery();
+            conn.Close();
+            if (rowsAffected == 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+            
+            
+
+
+        }
 
 
         public static bool InsertOrderRequest(OrderRequest or)
@@ -156,7 +177,7 @@ namespace PharmacyDrone.DataHandlers
                 if (conn.State == ConnectionState.Open)
                 {
 
-                    OleDbCommand cmd = new OleDbCommand("INSERT INTO OrderRequests (OrderNum, MedicalSupplyID, UserID) VALUES ('" + or.OrderNum + "','" + or.MedicalSupplyID + "','" + or.UserID + "' )", conn);
+                    OleDbCommand cmd = new OleDbCommand("INSERT INTO OrderRequests (OrderNum, MedicalSupplyID, UserID,DroneID) VALUES ('" + or.OrderNum + "','" + or.MedicalSupplyID + "','" + or.UserID + "','"+or.DroneID+" )", conn);
                     cmd.ExecuteNonQuery();
 
                 }
@@ -193,7 +214,9 @@ namespace PharmacyDrone.DataHandlers
 
                     while (reader.Read())
                     {
-                        orderRequestList.Add(new OrderRequest(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetInt32(3)));
+                        OrderRequest temp = new OrderRequest(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetInt32(3));
+                        temp.SetDrone(reader.GetInt32(4));
+                        orderRequestList.Add(temp);
                     }
 
 
@@ -271,6 +294,81 @@ namespace PharmacyDrone.DataHandlers
 
         }
 
+        public static Drone SelectDrone()
+        {
+            List<Drone> droneList = new List<Drone>();
+
+            try
+            {
+                conn.Open();
+                if (conn.State == ConnectionState.Open)
+                {
+                    OleDbCommand cmd = new OleDbCommand("Select * From Drone ", conn);
+                    OleDbDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        droneList.Add(new Drone(reader.GetInt32(0), reader.GetString(1)));
+                    }
+
+
+                }
+                else
+                {
+                    throw new CustomException("Database connection error");
+                }
+            }
+
+            catch (CustomException ce)
+            {
+
+                notifier.error(ce.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            Random rnd = new Random();
+
+            return droneList[rnd.Next(0,droneList.Count)];
+        }
+        public static Drone SelectDroneByID(int ID)
+        {
+            Drone drone = new Drone();
+
+            try
+            {
+                conn.Open();
+                if (conn.State == ConnectionState.Open)
+                {
+                    OleDbCommand cmd = new OleDbCommand("Select * From Drone WHERE DroneID = " + ID, conn);
+                    OleDbDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        drone = new Drone(reader.GetInt32(0), reader.GetString(1));
+                    }
+
+
+                }
+                else
+                {
+                    throw new CustomException("Database connection error");
+                }
+            }
+
+            catch (CustomException ce)
+            {
+
+                notifier.error(ce.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }          
+
+            return drone;
+        }
 
     }
 }

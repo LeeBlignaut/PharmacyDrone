@@ -13,11 +13,13 @@ namespace PharmacyDrone.Classes
         private int orderNum;
         private int medicalSupplyID;
         private int userID;
+        private int droneID;
 
         public int OrderID { get => orderID; set => orderID = value; }
         public int MedicalSupplyID { get => medicalSupplyID; set => medicalSupplyID = value; }
         public int OrderNum { get => orderNum; set => orderNum = value; }
         public int UserID { get => userID; set => userID = value; }
+        public int DroneID { get => droneID; set => droneID = value; }
 
         public OrderRequest(int orderNum, int medicalSupplyID, int userID)
         {
@@ -32,6 +34,10 @@ namespace PharmacyDrone.Classes
             this.orderNum = orderNum;
             this.medicalSupplyID = medicalSupplyID;
             this.userID = userID;
+        }
+        public void SetDrone(int drone)
+        {
+            this.droneID = drone;
         }
 
         public OrderRequest()
@@ -59,6 +65,10 @@ namespace PharmacyDrone.Classes
         public void DeleteOrderByID(int id)
         {
             DatahandlerR.DeleteOrderByID(id);
+        }
+        public bool UpdateState(int id)
+        {
+            return DatahandlerR.UpdateOrderState(id);
         }
     }
 }

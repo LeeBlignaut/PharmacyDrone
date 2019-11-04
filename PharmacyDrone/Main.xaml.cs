@@ -28,6 +28,7 @@ namespace PharmacyDrone
 
         
             int i = Login.accountType;
+            
 
     
 
@@ -35,7 +36,14 @@ namespace PharmacyDrone
             {
                 btnDispatch.IsEnabled = false;
                 btnPatients.IsEnabled = false;
-
+                bool orderDelievered = (new OrderRequest()).UpdateState(Login.userId);
+                if(orderDelievered)
+                {
+                    GPSLocation loc = new GPSLocation();
+                    loc.GetCurrentGPSLocation();
+                    notifier.success("You order has now been Delievered to : " + loc.ToString());
+                }
+                
             }
             else if(i==1) //If admin
             {
