@@ -19,7 +19,7 @@ namespace PharmacyDrone.Classes
         }
         public double GetDistance()
         {
-            GeoCoordinate distribution = new GeoCoordinate(-25.746020, 28.187120);
+            GeoCoordinate distribution = new GeoCoordinate(26.1394, 28.2468); //OR Tambo
             return gpsLocation.GetDistanceTo(distribution);
         }
 
