@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Threading;
 
 namespace PharmacyDrone
 {
@@ -104,6 +105,17 @@ namespace PharmacyDrone
             Register r = new Register();
             r.Show();
             this.Close();
+        }
+       
+        private void btnTest_Click(object sender, RoutedEventArgs e)
+        {
+            GPSLocation g = new GPSLocation();
+            g.GetCurrentGPSLocation();
+           
+           
+            // notifier.success(g.GpsLocation.Longitude.ToString() + g.Distance.ToString());
+
+            // notifier.success(Convert.ToString(g.Distance));
         }
     }
 }

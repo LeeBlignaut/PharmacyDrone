@@ -4,6 +4,7 @@ using System.Device.Location;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace PharmacyDrone.Classes
 {
@@ -20,23 +21,31 @@ namespace PharmacyDrone.Classes
         {
 
         }
-        public GPSLocation(GeoCoordinate coord)
-        {
-            this.gpsLocation = coord;
-        }
+        //public GPSLocation(GeoCoordinate coord)
+        //{
+        //    this.gpsLocation = coord;
+        //}
         private void GetDistance()
         {
-            GeoCoordinate distribution = new GeoCoordinate(26.1394, 28.2468); //OR Tambo
+            GeoCoordinate distribution = new GeoCoordinate(-26.1394, 28.2468); //OR Tambo
             distance = gpsLocation.GetDistanceTo(distribution);
         }
 
         public void GetCurrentGPSLocation()
         {
-            
+            Notify notify = new Notify();
+            // Create the watcher.
+            watcher = new GeoCoordinateWatcher();
+
+            // Catch the StatusChanged event.
             watcher.StatusChanged += Watcher_StatusChanged;
+
+            // Start the watcher.
             watcher.Start();
-            
+            Thread.Sleep(3000);
         }
+        public string longitude;
+        public string latitude;
         public void Watcher_StatusChanged(object sender, GeoPositionStatusChangedEventArgs e)
         {
             Notify notify = new Notify();
@@ -51,10 +60,20 @@ namespace PharmacyDrone.Classes
                 {
                     GeoCoordinate coord = watcher.Position.Location;
                     gpsLocation = coord;
-                    GetDistance();
+                    latitude = gpsLocation.Latitude.ToString();
+                    longitude = gpsLocation.Longitude.ToString();
+
+                    notify.success(latitude);
+                    notify.success(longitude);
+
+
+
                 }
             }
         }
+
+     
+
         public override string ToString()
         {
             return "Long : " + gpsLocation.Longitude.ToString() + " Lat : " + gpsLocation.Latitude.ToString();
