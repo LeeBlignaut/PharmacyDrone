@@ -9,7 +9,7 @@ namespace PharmacyDrone.Classes
 {
     class GPSLocation
     {
-        public GeoCoordinate gpsLocation;
+        private GeoCoordinate gpsLocation;
         private GeoCoordinateWatcher watcher = new GeoCoordinateWatcher();
         private double distance;
 
