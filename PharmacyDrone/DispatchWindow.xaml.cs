@@ -86,7 +86,7 @@ namespace PharmacyDrone
 
             foreach (OrderRequest item in orderRequestsList)
             {
-
+               
                 if (item.OrderNum == order)
                 {
                     medicalSupplyList.Add(ms.readMedicalSuppliesByID(item.MedicalSupplyID));
