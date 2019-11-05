@@ -31,8 +31,24 @@
         <Border.Effect>
             <DropShadowEffect BlurRadius="10" Direction="600" Opacity="0.6" ShadowDepth="8"/>
         </Border.Effect>
-        <Grid Background="White" Margin="193,-58,-232,0">
-            <Label Content="Recent Orders" Margin="111,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="34" Background="{x:Null}" Foreground="Black" FontSize="18" Width="135"/>
+        <Grid Background="White" Margin="-155,-58,272,10">
+            <Label Content="Recent Orders" Margin="10,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="34" Background="{x:Null}" Foreground="Black" FontSize="18" Width="135"/>
+            <ComboBox x:Name="cmbOrderList" Margin="10,49,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left" SelectionChanged="CmbOrderList_SelectionChanged" Width="221" Height="37">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" Margin="5">
+                            <Image Source=".\images\cross.png"  Height="30" Width="30"/>
+                            <TextBlock Text=" Order : "/>
+                            <TextBlock Text="{Binding OrderNum}"/>
+                        </StackPanel>
+
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+
+            <Grid Background="White" Margin="395,0,-512,-8">
+                
+            </Grid>
 
         </Grid>
     </Border>

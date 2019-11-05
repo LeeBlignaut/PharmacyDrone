@@ -67,7 +67,7 @@
 
 
 
-                    <Button x:Name="btnDispatch" Content="Dispatch Order" Width="127" Height="33" Margin="162,344,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Background="#FF36E824" Foreground="White" FontSize="16" BorderBrush="White" Cursor="Hand" Click="BtnDispatch_Click">
+                    <Button x:Name="btnDispatche" Content="Dispatch Order" Width="127" Height="33" Margin="162,344,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Background="#FF36E824" Foreground="White" FontSize="16" BorderBrush="White" Cursor="Hand" Click="BtnDispatche_Click">
                         <Button.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="13"/>

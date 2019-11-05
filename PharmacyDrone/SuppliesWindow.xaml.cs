@@ -21,20 +21,50 @@ namespace PharmacyDrone
     /// </summary>
     public partial class SuppliesWindow : UserControl
     {
+        public List<Types> typeList = new List<Types>();
         public SuppliesWindow()
         {
             InitializeComponent();
 
-            MedicalSupply ms = new MedicalSupply();
-            List<MedicalSupply> supplyList = ms.readMedicalSupplies();
-            dgvSupplies.ItemsSource = supplyList;
-            this.DataContext = supplyList;
+            //MedicalSupply ms = new MedicalSupply();
+            //List<MedicalSupply> supplyList = ms.readMedicalSupplies();
+            //dgvSupplies.ItemsSource = supplyList;
+            //this.DataContext = supplyList;
+
+            typeList.Add(new Types("Pill"));
+            typeList.Add(new Types("Tablet"));
+            typeList.Add(new Types("Vaccine"));
+            typeList.Add(new Types("Antibiotic"));
+            typeList.Add(new Types("Antiviral "));
+
+            cmbType.ItemsSource = typeList;
 
         }
 
-        private void DgvSupplies_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            string name = txtName.Text;
+            string desc = txtDesc.Text;
+            int price = int.Parse(txtPrice.Text);
+            int val = cmbType.SelectedIndex;
+            string type = typeList[val].SupplyType;
+
+
+
+        }
+        public class Types
         {
 
+            private string supplyType;
+
+            
+            public string SupplyType { get => supplyType; set => supplyType = value; }
+
+            public Types(string supplyType)
+            {
+                this.SupplyType = supplyType;
+            }
         }
     }
 }

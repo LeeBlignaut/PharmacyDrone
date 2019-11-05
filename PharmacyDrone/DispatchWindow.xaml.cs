@@ -115,7 +115,7 @@ namespace PharmacyDrone
 
         }
 
-        private void BtnDispatch_Click(object sender, RoutedEventArgs e)
+        private void BtnDispatche_Click(object sender, RoutedEventArgs e)
         {
 
             OrderRequest or = new OrderRequest();
