@@ -1,8 +1,10 @@
 ﻿using PharmacyDrone.Classes;
 using System;
 using System.Collections.Generic;
+using System.Device.Location;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -35,6 +37,15 @@ namespace PharmacyDrone
             {
                 btnDispatch.IsEnabled = false;
                 btnPatients.IsEnabled = false;
+                bool orderDelievered = (new OrderRequest()).UpdateState(Login.userId);
+                if (orderDelievered)
+                {
+                    GeoCoordinateWatcher watcher = new GeoCoordinateWatcher();
+                    watcher.TryStart(false, TimeSpan.FromMilliseconds(300));
+                    Thread.Sleep(300);
+                    GeoCoordinate loc = watcher.Position.Location;
+                    notifier.success("You order has now been Delievered to : " + loc.ToString());
+                }
 
             }
             else if(i==1) //If admin

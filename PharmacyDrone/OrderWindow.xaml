@@ -84,8 +84,8 @@
                 </Border.Effect>
                 <Grid x:Name="gCart" Background="White" Margin="205,-163,-140,80">
 
-                    <TextBox x:Name="txtCart" Height="306" TextWrapping="Wrap" IsReadOnly="True"
-              FontFamily="Microsoft JhengHei Light" FontSize="14" Margin="0,0,10,57" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="291" Background="{x:Null}" BorderBrush="#FF5F5F5F" Foreground="Black">
+                    <TextBox x:Name="txtCart" Height="251" TextWrapping="Wrap" IsReadOnly="True"
+              FontFamily="Microsoft JhengHei Light" FontSize="14" Margin="0,0,10,112" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="291" Background="{x:Null}" BorderBrush="#FF5F5F5F" Foreground="Black">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="13"/>
@@ -93,8 +93,12 @@
                         </TextBox.Resources>
                     </TextBox>
 
-                    <Label Content="Total :"  VerticalAlignment="Bottom" Height="25" Background="{x:Null}" Foreground="Black" FontSize="12" Margin="10,0,256,32" />
-                    <Label x:Name="lblTotal"  VerticalAlignment="Bottom" Height="25" Background="{x:Null}" Foreground="Black" FontSize="12" Margin="60,0,173,32" />
+                    <Label Content="Total :"  VerticalAlignment="Bottom" Height="25" Background="{x:Null}" Foreground="Black" FontSize="12" Margin="10,0,256,30" />
+                    <Label x:Name="lblTotal"  VerticalAlignment="Bottom" Height="25" Background="{x:Null}" Foreground="Black" FontSize="12" Margin="60,0,173,30" />
+                    <Label Content="Delivery Location : " HorizontalAlignment="Left" Margin="10,261,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.966,-0.205"/>
+                    <Label x:Name="lblLocation" Content="" HorizontalAlignment="Left" Margin="128,261,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Drone : " HorizontalAlignment="Left" Margin="10,287,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.966,-0.205"/>
+                    <Label x:Name="lblDrone" Content="" HorizontalAlignment="Left" Margin="69,287,0,0" VerticalAlignment="Top"/>
 
 
 

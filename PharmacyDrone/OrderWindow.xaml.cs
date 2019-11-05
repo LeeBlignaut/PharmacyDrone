@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Device.Location;
+using System.Threading;
 
 namespace PharmacyDrone
 {
@@ -22,6 +24,8 @@ namespace PharmacyDrone
     public partial class OrderWindow : UserControl
     {
         Notify notifier = new Notify();
+        GeoCoordinate currentLoc = new GeoCoordinate();
+        Drone drone = new Drone();
         public OrderWindow()
         {
             InitializeComponent();
@@ -42,6 +46,17 @@ namespace PharmacyDrone
             txtNotes.Visibility = Visibility.Hidden;
             btnAdd.Visibility = Visibility.Hidden;
             gCart.Visibility = Visibility.Hidden;
+
+            GeoCoordinateWatcher watcher = new GeoCoordinateWatcher();
+            watcher.TryStart(false, TimeSpan.FromMilliseconds(300));
+            Thread.Sleep(300);
+            currentLoc = watcher.Position.Location;
+            watcher.Stop();
+
+            drone.GetDrone();
+
+            lblLocation.Content = currentLoc.ToString();
+            lblDrone.Content = drone.ToString();
         }
 
         private void CmbMedicineList_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -88,6 +103,8 @@ namespace PharmacyDrone
             foreach (MedicalSupply item in cartList)
             {
                 or = new OrderRequest(num, item.SupplyId,Login.userId);
+                or.SetDrone(drone.DroneID);
+                or.SetGeoLocaton(currentLoc);
                 flag = or.InsertOrderRequests(or);
 
                 if (!flag)
