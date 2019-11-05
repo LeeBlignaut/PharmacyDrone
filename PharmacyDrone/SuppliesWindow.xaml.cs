@@ -22,6 +22,7 @@ namespace PharmacyDrone
     public partial class SuppliesWindow : UserControl
     {
         public List<Types> typeList = new List<Types>();
+        Notify notifier = new Notify();
         public SuppliesWindow()
         {
             InitializeComponent();
@@ -50,7 +51,16 @@ namespace PharmacyDrone
             int val = cmbType.SelectedIndex;
             string type = typeList[val].SupplyType;
 
+            MedicalSupply ms = new MedicalSupply(name, type, desc, price);
 
+            if (ms.InsertMedicalSupply(ms))
+            {
+                notifier.success("Medical Supply added succesfully");
+            }
+            else
+            {
+                notifier.error("Error adding Medical supply");
+            }
 
         }
         public class Types

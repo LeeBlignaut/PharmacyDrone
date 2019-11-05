@@ -54,6 +54,10 @@ namespace PharmacyDrone.Classes
             return ms;
         }
 
+        public bool InsertMedicalSupply(MedicalSupply ms)
+        {
+            return DatahandlerR.InsertMedicalSupply(ms);
+        }
 
     }
 }

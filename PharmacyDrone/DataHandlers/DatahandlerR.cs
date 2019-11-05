@@ -374,6 +374,42 @@ namespace PharmacyDrone.DataHandlers
             return drone;
         }
 
+        public static bool InsertMedicalSupply(MedicalSupply ms)
+        {
+
+
+            try
+            {
+                conn.Open();
+                if (conn.State == ConnectionState.Open)
+                {
+
+                    OleDbCommand cmd = new OleDbCommand("INSERT INTO MedicalSupply (MedicalSupplyName, MedicalSupplyType, MedicalSupplyDesc ,MedicalSupplyPrice) VALUES (" +
+                        "'" + ms.SupplyName + "','" +
+                        ms.SupplyType + "','" +
+                        ms.SupplyDesc + "','" +
+                        ms.SupplyPrice + "')", conn);
+                    cmd.ExecuteNonQuery();
+
+                }
+            }
+
+            catch (CustomException ce)
+            {
+
+                notifier.error(ce.Message);
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return true;
+
+
+        }
+
 
     }
 }
