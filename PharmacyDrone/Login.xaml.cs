@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Threading;
+using System.Device.Location;
 
 namespace PharmacyDrone
 {
@@ -109,10 +110,15 @@ namespace PharmacyDrone
        
         private void btnTest_Click(object sender, RoutedEventArgs e)
         {
-            GPSLocation g = new GPSLocation();
-            g.GetCurrentGPSLocation();
-           
-           
+            GeoCoordinateWatcher watcher = new GeoCoordinateWatcher();
+            watcher.TryStart(false, TimeSpan.FromMilliseconds(300));
+            Thread.Sleep(300);
+            GeoCoordinate temp = watcher.Position.Location;
+            notifier.success(temp.ToString());
+            double distance = Math.Round(temp.GetDistanceTo(new GeoCoordinate(-26.134789, 28.240528)) / 1000, 0);
+            notifier.success(distance.ToString());
+
+
             // notifier.success(g.GpsLocation.Longitude.ToString() + g.Distance.ToString());
 
             // notifier.success(Convert.ToString(g.Distance));

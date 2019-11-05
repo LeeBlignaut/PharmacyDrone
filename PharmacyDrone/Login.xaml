@@ -61,7 +61,7 @@
             <Run Text="Don't have an account"/>
         </TextBlock>
 
-        <Button x:Name="btnTest" ToolTip="Click here to Login" TabIndex="4" FontFamily="Microsoft JhengHei Light" Content="Test" Width="159" Height="37" Margin="548,285,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Background="{x:Null}" Foreground="White" FontSize="16" BorderBrush="White" Click="btnTest_Click">
+        <Button x:Name="btnTest" ToolTip="Click here to Login" TabIndex="4" FontFamily="Microsoft JhengHei Light" Content="Test" Width="159" Height="37" Margin="548,285,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Background="Black" Foreground="White" FontSize="16" BorderBrush="White" Click="btnTest_Click">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="13"/>
