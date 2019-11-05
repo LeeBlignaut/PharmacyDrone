@@ -24,5 +24,10 @@ namespace PharmacyDrone
         {
             InitializeComponent();
         }
+
+        private void cmbOrderList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

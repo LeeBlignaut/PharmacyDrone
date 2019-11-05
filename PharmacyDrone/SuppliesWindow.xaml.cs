@@ -35,7 +35,7 @@ namespace PharmacyDrone
             typeList.Add(new Types("Tablet"));
             typeList.Add(new Types("Vaccine"));
             typeList.Add(new Types("Antibiotic"));
-            typeList.Add(new Types("Antiviral "));
+            typeList.Add(new Types("Antiviral"));
 
             cmbType.ItemsSource = typeList;
 

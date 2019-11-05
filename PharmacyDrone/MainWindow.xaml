@@ -33,7 +33,7 @@
         </Border.Effect>
         <Grid Background="White" Margin="-155,-58,272,10">
             <Label Content="Recent Orders" Margin="10,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="34" Background="{x:Null}" Foreground="Black" FontSize="18" Width="135"/>
-            <ComboBox x:Name="cmbOrderList" Margin="10,49,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left" SelectionChanged="CmbOrderList_SelectionChanged" Width="221" Height="37">
+            <ComboBox x:Name="cmbOrderList" Margin="10,49,0,0"  VerticalAlignment="Top" HorizontalAlignment="Left" SelectionChanged="cmbOrderList_SelectionChanged" Width="221" Height="37">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" Margin="5">
