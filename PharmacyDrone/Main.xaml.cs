@@ -30,7 +30,7 @@ namespace PharmacyDrone
 
         
             int i = Login.accountType;
-
+            int u = Login.userId;
     
 
             if (i ==0) //If patient
@@ -41,9 +41,10 @@ namespace PharmacyDrone
                 if (orderDelievered)
                 {
                     GeoCoordinateWatcher watcher = new GeoCoordinateWatcher();
-                    watcher.TryStart(false, TimeSpan.FromMilliseconds(300));
-                    Thread.Sleep(300);
+                    watcher.TryStart(false, TimeSpan.FromMilliseconds(1000));
+                    Thread.Sleep(1000);
                     GeoCoordinate loc = watcher.Position.Location;
+                    
                     notifier.success("You order has now been Delievered to : " + loc.ToString());
                 }
 

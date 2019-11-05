@@ -48,8 +48,8 @@ namespace PharmacyDrone
             gCart.Visibility = Visibility.Hidden;
 
             GeoCoordinateWatcher watcher = new GeoCoordinateWatcher();
-            watcher.TryStart(false, TimeSpan.FromMilliseconds(300));
-            Thread.Sleep(300);
+            watcher.TryStart(false, TimeSpan.FromMilliseconds(1000));
+            Thread.Sleep(1000);
             currentLoc = watcher.Position.Location;
             watcher.Stop();
 

@@ -76,7 +76,7 @@ namespace PharmacyDrone.Classes
         }
         public bool UpdateState(int userId)
         {
-            return DatahandlerR.UpdateOrderState(userID);
+            return DatahandlerR.UpdateOrderState(userId);
         }
     }
 }

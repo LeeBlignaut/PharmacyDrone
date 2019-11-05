@@ -115,9 +115,7 @@ namespace PharmacyDrone
 
         private void BtnDispatch_Click(object sender, RoutedEventArgs e)
         {
-            OrderRequest or = new OrderRequest();
-
-            or.DeleteOrderByID(order);
+            
 
             notifier.success("Order has been dispatched");
 

@@ -188,7 +188,7 @@ namespace PharmacyDrone.DataHandlers
         {
             conn.Open();
 
-            OleDbCommand cmd = new OleDbCommand("Update [OrderRequests] Set OrderState = '1' Where UserID = '" + userId + "' AND OrderState = '0'", conn);
+            OleDbCommand cmd = new OleDbCommand("Update [OrderRequests] Set OrderStatus = '1' Where UserID = '" + userId + "' AND OrderStatus = '0'", conn);
 
             int rowsAffected = cmd.ExecuteNonQuery();
             conn.Close();
@@ -220,7 +220,7 @@ namespace PharmacyDrone.DataHandlers
                     {
                         OrderRequest order = new OrderRequest(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetInt32(3));
                         order.SetDrone(reader.GetInt32(4));
-                        order.SetGeoLocaton(new GeoCoordinate(reader.GetDouble(5),reader.GetDouble(6)));
+                        order.SetGeoLocaton(new GeoCoordinate(Double.Parse(reader.GetString(5)),Double.Parse(reader.GetString(6))));
                         orderRequestList.Add(order);
                     }
 
