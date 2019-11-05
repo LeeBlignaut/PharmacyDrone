@@ -74,9 +74,9 @@ namespace PharmacyDrone.Classes
         {
             this.gpsLocation = gpsLocation;
         }
-        public bool UpdateState(int userId)
+        public bool UpdateState(int userId,int state)
         {
-            return DatahandlerR.UpdateOrderState(userId);
+            return DatahandlerR.UpdateOrderState(userId,state);
         }
     }
 }

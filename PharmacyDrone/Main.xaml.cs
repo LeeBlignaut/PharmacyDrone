@@ -37,7 +37,7 @@ namespace PharmacyDrone
             {
                 btnDispatch.IsEnabled = false;
                 btnPatients.IsEnabled = false;
-                //bool orderDelievered = (new OrderRequest()).UpdateState(Login.userId);
+                //bool orderDelievered = (new OrderRequest()).UpdateState(Login.userId,2);
                 //if (orderDelievered)
                 //{
                 //    GeoCoordinateWatcher watcher = new GeoCoordinateWatcher();
@@ -46,10 +46,6 @@ namespace PharmacyDrone
                 //    GeoCoordinate loc = watcher.Position.Location;
                     
                 //    notifier.success("You order has now been Delievered to : " + loc.ToString());
-
-
-                //    MainWindow mw = new MainWindow();
-                //    Cc.Content = mw;
                 //}
 
             }

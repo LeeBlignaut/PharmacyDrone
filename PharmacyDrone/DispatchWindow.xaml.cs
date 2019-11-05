@@ -38,6 +38,7 @@ namespace PharmacyDrone
 
         List<Num> refinedOrderNum = new List<Num>();
         List<OrderRequest> orderRequestsList = new List<OrderRequest>();
+        private int userId;
         public DispatchWindow()
         {
             InitializeComponent();
@@ -89,6 +90,7 @@ namespace PharmacyDrone
                
                 if (item.OrderNum == order)
                 {
+                    userId = item.UserID;
                     medicalSupplyList.Add(ms.readMedicalSuppliesByID(item.MedicalSupplyID));
                 }
             }
@@ -115,9 +117,16 @@ namespace PharmacyDrone
 
         private void BtnDispatch_Click(object sender, RoutedEventArgs e)
         {
-            
 
-            notifier.success("Order has been dispatched");
+            OrderRequest or = new OrderRequest();
+            if (or.UpdateState(userId,1))
+            {
+                notifier.success("Order has been dispatched");
+            }
+            else
+            {
+                notifier.error("Failed to Dispatch");
+            }
 
         }
     }
