@@ -45,22 +45,40 @@ namespace PharmacyDrone
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            string name = txtName.Text;
-            string desc = txtDesc.Text;
-            int price = int.Parse(txtPrice.Text);
-            int val = cmbType.SelectedIndex;
-            string type = typeList[val].SupplyType;
-
-            MedicalSupply ms = new MedicalSupply(name, type, desc, price);
-
-            if (ms.InsertMedicalSupply(ms))
+            if (txtName.Text!=String.Empty || txtDesc.Text != String.Empty || txtPrice.Text != String.Empty)
             {
-                notifier.success("Medical Supply added succesfully");
+                int n;
+                if (int.TryParse(txtPrice.Text,out n)) //////////////////////////////////////////////////////////////Testing needed
+                {
+                    string name = txtName.Text;
+                    string desc = txtDesc.Text;
+                    int price = int.Parse(txtPrice.Text);
+                    int val = cmbType.SelectedIndex;
+                    string type = typeList[val].SupplyType;
+
+                    MedicalSupply ms = new MedicalSupply(name, type, desc, price);
+
+                    if (ms.InsertMedicalSupply(ms))
+                    {
+                        notifier.success("Medical Supply added succesfully");
+                    }
+                    else
+                    {
+                        notifier.error("Error adding Medical supply");
+                    }
+                }
+                else
+                {
+                    notifier.error("Price must be a number");
+                }
+               
             }
             else
             {
-                notifier.error("Error adding Medical supply");
+                notifier.error("Fields cannot be empty");
             }
+           
+            
 
         }
         public class Types
