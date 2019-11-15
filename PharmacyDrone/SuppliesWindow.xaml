@@ -37,7 +37,7 @@
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" Margin="5">
-                            <Image Source=".\images\cross.png"  Height="30" Width="30"/>
+                            <Image Source="images/cross.png"  Height="30" Width="30"/>
                             <TextBlock Text=" "/>
                             <TextBlock Text="{Binding SupplyType}"/>
                         </StackPanel>

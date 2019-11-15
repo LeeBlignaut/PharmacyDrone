@@ -57,6 +57,9 @@ namespace PharmacyDrone
 
             lblLocation.Content = currentLoc.ToString();
             lblDrone.Content = drone.ToString();
+
+            
+        
         }
 
         private void CmbMedicineList_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -76,6 +79,7 @@ namespace PharmacyDrone
         int total = 0;
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
+         
             notifier.success("Added To Cart");
             gCart.Visibility = Visibility.Visible;
 

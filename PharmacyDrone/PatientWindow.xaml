@@ -65,7 +65,7 @@
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal" Margin="1">
-                                    <Image Source=".\images\key.png"  Height="25" Width="25"/>
+                                    <Image Source="images/key.png"  Height="25" Width="25"/>
                                     <TextBlock Text=" "/>
                                     <TextBlock Text="{Binding State}"/>
                                 </StackPanel>

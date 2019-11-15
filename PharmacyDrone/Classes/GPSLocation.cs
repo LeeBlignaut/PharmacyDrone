@@ -25,10 +25,12 @@ namespace PharmacyDrone.Classes
         //{
         //    this.gpsLocation = coord;
         //}
-        private void GetDistance()
+        private double GetDistance()
         {
             GeoCoordinate distribution = new GeoCoordinate(-26.1394, 28.2468); //OR Tambo
             distance = gpsLocation.GetDistanceTo(distribution);
+
+            return distance;
         }
 
         public void GetCurrentGPSLocation()

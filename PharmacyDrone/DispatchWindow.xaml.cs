@@ -80,6 +80,9 @@ namespace PharmacyDrone
         private void CmbOrderList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             gDispatch.Visibility = Visibility.Visible;
+
+
+            txtDispatch.Clear();
             int index = cmbOrderList.SelectedIndex;
             order = refinedOrderNum[index].OrderNum;
             List<MedicalSupply> medicalSupplyList = new List<MedicalSupply>();

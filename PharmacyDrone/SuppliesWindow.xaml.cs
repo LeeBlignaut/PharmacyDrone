@@ -48,7 +48,7 @@ namespace PharmacyDrone
             if (txtName.Text!=String.Empty || txtDesc.Text != String.Empty || txtPrice.Text != String.Empty)
             {
                 int n;
-                if (int.TryParse(txtPrice.Text,out n)) //////////////////////////////////////////////////////////////Testing needed
+                if (int.TryParse(txtPrice.Text,out n)) //////////////////////////////////////////////////////////////           Testing needed
                 {
                     string name = txtName.Text;
                     string desc = txtDesc.Text;

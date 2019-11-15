@@ -17,7 +17,6 @@ namespace PharmacyDrone.DataHandlers
 
         static OleDbConnection conn = new OleDbConnection(ConfigurationManager.ConnectionStrings["PharmacyDroneDB"].ConnectionString);
 
-
         public List<User> ReadUsers()
         {
             List<User> userList = new List<User>();
@@ -90,7 +89,45 @@ namespace PharmacyDrone.DataHandlers
 
         } //Creates a new account
 
+        public List<OrderRequest> ReadRecentOrders(int userid)
+        {
+            List<OrderRequest> orderList = new List<OrderRequest>();
 
+            try
+            {
+                conn.Open();
+                if (conn.State == ConnectionState.Open)
+                {
+                    OleDbCommand cmd = new OleDbCommand("Select * From [OrderRequests] Where UserID = " + userid, conn);
+                    OleDbDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        orderList.Add(new OrderRequest(reader.GetInt32(0), reader.GetInt32(1), reader.GetInt32(2), reader.GetInt32(3), reader.GetInt32(4), new GeoCoordinate(double.Parse(reader.GetString(5)), double.Parse(reader.GetString(6))), reader.GetInt32(7)));
+                    }
+
+
+                }
+                else
+                {
+                    throw new CustomException("Database connection error");
+                }
+            }
+
+            catch (CustomException ce)
+            {
+
+                notifier.error(ce.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return orderList;
+
+
+        }
 
         public List<MedicalSupply> ReadMedicalSupplies()
         {

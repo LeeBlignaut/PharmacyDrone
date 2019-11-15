@@ -39,6 +39,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Device" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -160,6 +161,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\LoginBG.jpg" />
+    <Resource Include="images\cross.png" />
+    <Resource Include="images\dispatch.png" />
+    <Resource Include="images\key.png" />
+    <Resource Include="images\loginBG.jpg" />
+    <Resource Include="images\logOut.png" />
+    <Resource Include="images\order.png" />
+    <Resource Include="images\patients.png" />
+    <Resource Include="images\supplies.png" />
     <Content Include="script.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
