@@ -268,7 +268,7 @@ namespace PharmacyDrone.DataHandlers
                 conn.Open();
                 if (conn.State == ConnectionState.Open)
                 {
-                    OleDbCommand cmd = new OleDbCommand("Select * From OrderRequests", conn);
+                    OleDbCommand cmd = new OleDbCommand("Select * From OrderRequests Where OrderStatus = 0", conn);
                     OleDbDataReader reader = cmd.ExecuteReader();
 
                     while (reader.Read())
