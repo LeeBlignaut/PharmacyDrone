@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Device.Location;
+using System.Threading;
 
 namespace PharmacyDrone.DataHandlers
 {
@@ -59,29 +60,46 @@ namespace PharmacyDrone.DataHandlers
 
         public static bool InsertUser(User u)
         {
-
-
-            try
+            List<User> userList = (new DatahandlerR()).ReadUsers();
+            bool userExists = false;
+            foreach (User user in userList)
             {
-                conn.Open();
-                if (conn.State == ConnectionState.Open)
+                if((user.Username == u.Username))
                 {
-
-                    OleDbCommand cmd = new OleDbCommand("INSERT INTO [User] (UserName, Password, AccountType, AccountState) VALUES ('" + u.Username + "','" + u.Password + "','" + u.AccountType +"','" + u.State + "' )", conn);
-                    cmd.ExecuteNonQuery();
-
+                    userExists = true;
                 }
             }
 
-            catch (CustomException ce)
+            if(!userExists)
             {
+                try
+                {
+                    conn.Open();
+                    if (conn.State == ConnectionState.Open)
+                    {
 
-                notifier.error(ce.Message);
-                return false;
+                        OleDbCommand cmd = new OleDbCommand("INSERT INTO [User] (UserName, Password, AccountType, AccountState) VALUES ('" + u.Username + "','" + u.Password + "','" + u.AccountType + "','" + u.State + "' )", conn);
+                        cmd.ExecuteNonQuery();
+
+                    }
+                }
+
+                catch (CustomException ce)
+                {
+
+                    notifier.error(ce.Message);
+                    return false;
+                }
+                finally
+                {
+                    conn.Close();
+                }
             }
-            finally
+            else
             {
-                conn.Close();
+                notifier.error(String.Format("Username {0} Already Exists , Please Select Another", u.Username));
+                Thread.Sleep(500);
+                return false;
             }
 
             return true;

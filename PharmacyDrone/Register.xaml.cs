@@ -46,11 +46,15 @@ namespace PharmacyDrone
                     notifier.error("Error creating your account");
                     txtUsername.Clear();
                     txtPassword.Clear();
+                    txtConfirmPassword.Clear();
                 }
             }
             else
             {
                 notifier.error("Passwords don't match");
+                txtUsername.Clear();
+                txtPassword.Clear();
+                txtConfirmPassword.Clear();
             }
             
             
