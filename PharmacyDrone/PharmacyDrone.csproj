@@ -170,6 +170,7 @@
     <Resource Include="images\order.png" />
     <Resource Include="images\patients.png" />
     <Resource Include="images\supplies.png" />
+    <None Include="images\back.png" />
     <Content Include="script.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
