@@ -62,8 +62,9 @@ namespace PharmacyDrone
                     {
                         notifier.success("Medical Supply added succesfully");
 
-                        MainWindow main = new MainWindow();
-                        Content = main;
+                        //MainWindow main = new MainWindow();
+                        //Content = main;
+                        //How we will switch to about us page
                     }
                     else
                     {

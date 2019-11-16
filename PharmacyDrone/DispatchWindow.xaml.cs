@@ -130,8 +130,9 @@ namespace PharmacyDrone
             {
                 notifier.error("Failed to Dispatch");
             }
-            MainWindow main = new MainWindow();
-            Content = main;
+            //MainWindow main = new MainWindow();
+            //Content = main;
+            //How we will switch to about us page
 
         }
 

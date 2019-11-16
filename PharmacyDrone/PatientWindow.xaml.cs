@@ -101,10 +101,11 @@ namespace PharmacyDrone
                 u.updateState(i, Convert.ToInt32(lblu.Content.ToString()));
                 notifier.success("Account Updated Succesfully");
 
-                MainWindow main = new MainWindow();
-                Content = main;
+                //MainWindow main = new MainWindow();
+                //Content = main;
+                //How we will switch to about us page
             }
-            
+
         }
     }
 
