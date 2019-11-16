@@ -37,6 +37,7 @@ namespace PharmacyDrone
             {
                 btnDispatch.IsEnabled = false;
                 btnPatients.IsEnabled = false;
+                btnSupplies.IsEnabled = false;
                 //bool orderDelievered = (new OrderRequest()).UpdateState(Login.userId,2);
                 //if (orderDelievered)
                 //{
