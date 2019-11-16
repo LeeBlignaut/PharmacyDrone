@@ -33,7 +33,7 @@
         </Border.Effect>
         <Grid Background="White" Margin="-25,-55,10,-10">
             <Label Content="Add a Medical Supply" Margin="10,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Height="34" Background="{x:Null}" Foreground="Black" FontSize="18" Width="206"/>
-            <ComboBox x:Name="cmbType" Margin="112,86,88,257">
+            <ComboBox x:Name="cmbType" Margin="112,86,88,248">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" Margin="5">

@@ -132,5 +132,12 @@ namespace PharmacyDrone
             }
 
         }
+
+        private void btnHome_Click(object sender, RoutedEventArgs e)
+        {
+            Main m = new Main();
+            MainWindow mw = new MainWindow();
+            m.Cc.Content = mw;
+        }
     }
 }
