@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:PharmacyDrone"
         mc:Ignorable="d"
         Title="Register" Height="450" Width="800"
-          ResizeMode="NoResize" Closed="Window_Closed">
+          ResizeMode="NoResize">
     <Window.Resources>
         <ControlTemplate x:Key="passwordbox" TargetType="{x:Type PasswordBox}">
             <Border Background="{TemplateBinding Background}" 

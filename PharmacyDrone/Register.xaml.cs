@@ -35,10 +35,18 @@ namespace PharmacyDrone
                 if (u.insertUser(u))
                 {
                     notifier.success("Account created Succesfully");
-                    System.Threading.Thread.Sleep(1500);
+                    System.Threading.Thread.Sleep(500);
                     notifier.information("The Admin will activate your account shortly");
-                    System.Threading.Thread.Sleep(1500);
-                    this.Close();
+                    System.Threading.Thread.Sleep(500);
+
+
+                    Login l = new Login();
+                    l.Show();
+
+                    txtConfirmPassword.Clear();
+                    txtPassword.Clear();
+                    txtUsername.Clear();
+                    this.Hide();
 
                 }
                 else
@@ -56,12 +64,7 @@ namespace PharmacyDrone
             
         }
 
-        private void Window_Closed(object sender, EventArgs e)
-        {
-            Login l = new Login();
-            l.Show();
-            
-        }
+       
 
        
     }
