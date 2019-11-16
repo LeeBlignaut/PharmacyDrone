@@ -66,9 +66,9 @@ namespace PharmacyDrone.Classes
             return DatahandlerR.InsertUser(u);
         }
 
-        public void updateState(int i,int id)
+        public void updateState(int i,int id,int accountType)
         {
-            DatahandlerR.UpdateState(i, id);
+            DatahandlerR.UpdateState(i, id,accountType);
         }
     }
 }

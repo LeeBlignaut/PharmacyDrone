@@ -50,42 +50,61 @@ namespace PharmacyDrone
 
                 foreach (User item in userList)
                 {
+                    
                     if (item.Username == txtUsername.Text && item.Password == txtPassword.Password)
                     {
-                        flag = true;
-                        switch (item.State)
+                        if (item.AccountType == 1)
                         {
-                            case 1:
-                                {
-                                    notifier.warning("Your account is Pending");
-                                    break;
-                                }
-                            case 2:
-                                {
-                                    accountType = item.AccountType;
-                                    userId = item.UserId;
+                            flag = true;
+                            accountType = item.AccountType;
+                            userId = item.UserId;
 
-                                    Main m = new Main();
-                                    m.Show();
-                                    this.Close();
+                            Main m = new Main();
+                            m.Show();
+                            this.Close();
+                            break;
+                        }
+                        else
+                        {
 
 
+                            flag = true;
+                            switch (item.State)
+                            {
+                                case 1:
+                                    {
+                                        notifier.warning("Your account is Pending");
+                                        break;
+                                    }
+                                case 2:
+                                    {
+                                        accountType = item.AccountType;
+                                        userId = item.UserId;
+
+                                        Main m = new Main();
+                                        m.Show();
+                                        this.Close();
+
+
+                                        break;
+                                    }
+                                case 3:
+                                    {
+                                        notifier.error("Your account is Suspended");
+                                        break;
+                                    }
+                                case 4:
+                                    {
+                                        notifier.error("Your account is Inactive");
+                                        break;
+                                    }
+                                default:
                                     break;
-                                }
-                            case 3:
-                                {
-                                    notifier.error("Your account is Suspended");
-                                    break;
-                                }
-                            case 4:
-                                {
-                                    notifier.error("Your account is Inactive");
-                                    break;
-                                }
-                            default:
-                                break;
+
+                            }
                         }
                     }
+
 
                 }
 

@@ -40,7 +40,7 @@
                 <Border.Effect>
                     <DropShadowEffect BlurRadius="20" Direction="600" Opacity="0.0" ShadowDepth="8"/>
                 </Border.Effect>
-                <Grid x:Name="gView" Background="White" Margin="231,-162,-166,200">
+                <Grid x:Name="gView" Background="White" Margin="231,-162,-166,191">
 
                     <Label x:Name="lblu" Visibility="Hidden" Content="{Binding SelectedItem.UserId , ElementName=dgvUsers}"  Height="27" Margin="124,21,33,320"/>
                     <Label Content="Name : " Margin="10,21,198,199"/>
@@ -61,7 +61,7 @@
 
                     <Label Content="Account State: " Margin="10,134,199,87"/>
 
-                    <ComboBox x:Name="cmbStates" Width="150" Margin="124,134,37,87" >
+                    <ComboBox x:Name="cmbStates" Width="150" Margin="124,129,37,92" >
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal" Margin="1">
@@ -75,7 +75,10 @@
                     </ComboBox>
 
 
-                    <Button x:Name="btnEdit" Content="Change" Width="84" Height="29" Margin="106,208,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Background="#FF36E824" Foreground="White" FontSize="16" BorderBrush="White" Cursor="Hand" Click="BtnEdit_Click">
+
+                    <CheckBox x:Name="cbAdmin" IsChecked="{Binding SelectedItem.AccountType , ElementName=dgvUsers}"  Margin="11,174,198,58" Checked="cbAdmin_Checked" Unchecked="cbAdmin_Unchecked">Make Admin</CheckBox>
+                    
+                    <Button x:Name="btnEdit" Content="Change" Width="84" Height="29" Margin="106,217,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Background="#FF36E824" Foreground="White" FontSize="16" BorderBrush="White" Cursor="Hand" Click="BtnEdit_Click">
                         <Button.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="13"/>

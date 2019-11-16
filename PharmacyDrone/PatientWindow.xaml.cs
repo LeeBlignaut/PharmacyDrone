@@ -37,11 +37,11 @@ namespace PharmacyDrone
             List<User> newUserList = new List<User>();
             foreach (User item in userList)
             {
-                if (item.AccountType == 0)
-                {
-                    item.Password = "*****";
-                    newUserList.Add(item);
-                }
+                //if (item.AccountType == 0)
+              //  {
+                   item.Password = "*****";
+                   newUserList.Add(item);
+              //  }
                
             }
             dgvUsers.ItemsSource = newUserList;
@@ -57,6 +57,12 @@ namespace PharmacyDrone
             if (lblAc.Content.ToString() == "0")
             {
                 lblAccountType.Content = "Patient";
+                cmbStates.IsEnabled = true;
+            }
+            else
+            {
+                lblAccountType.Content = "Admin";
+                cmbStates.IsEnabled = false;
             }
             switch (Convert.ToInt32(lblAcs.Content.ToString()))
             {
@@ -97,8 +103,15 @@ namespace PharmacyDrone
             }
             else
             {
+                //checkbox
+                //lblac
+                int check = 0;
+                if (cbAdmin.IsChecked==true)
+                {
+                    check = 1;
+                }
                 User u = new User();
-                u.updateState(i, Convert.ToInt32(lblu.Content.ToString()));
+                u.updateState(i, Convert.ToInt32(lblu.Content.ToString()),check);
                 notifier.success("Account Updated Succesfully");
 
                 //MainWindow main = new MainWindow();
@@ -106,6 +119,16 @@ namespace PharmacyDrone
                 //How we will switch to about us page
             }
 
+        }
+
+        private void cbAdmin_Checked(object sender, RoutedEventArgs e)
+        {
+            cmbStates.IsEnabled = false;
+        }
+
+        private void cbAdmin_Unchecked(object sender, RoutedEventArgs e)
+        {
+            cmbStates.IsEnabled = true;
         }
     }
 

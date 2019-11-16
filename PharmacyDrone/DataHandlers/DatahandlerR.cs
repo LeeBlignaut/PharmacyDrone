@@ -189,11 +189,11 @@ namespace PharmacyDrone.DataHandlers
 
 
 
-        public static void UpdateState(int i,int id)
+        public static void UpdateState(int i,int id,int accountType)
         {
             conn.Open();
 
-            OleDbCommand cmd = new OleDbCommand("Update [User] Set AccountState = '"+i+"' Where UserID = '" + id + "'", conn);
+            OleDbCommand cmd = new OleDbCommand("Update [User] Set AccountState = '"+i+"', AccountType = '"+ accountType + "' Where UserID = '" + id + "'", conn);
 
             cmd.ExecuteNonQuery();
             conn.Close();
