@@ -126,6 +126,9 @@ namespace PharmacyDrone
                 txtCart.Clear();
                 lblTotal.Content = "";
             }
+
+            MainWindow main = new MainWindow();
+            Content = main;
         }
 
     }

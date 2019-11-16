@@ -61,6 +61,9 @@ namespace PharmacyDrone
                     if (ms.InsertMedicalSupply(ms))
                     {
                         notifier.success("Medical Supply added succesfully");
+
+                        MainWindow main = new MainWindow();
+                        Content = main;
                     }
                     else
                     {
