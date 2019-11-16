@@ -56,7 +56,7 @@ namespace PharmacyDrone
             DispatchWindow dw = new DispatchWindow();
             Cc.Content = dw;
 
-      
+            
         }
 
         private void BtnPatients_Click(object sender, RoutedEventArgs e)
