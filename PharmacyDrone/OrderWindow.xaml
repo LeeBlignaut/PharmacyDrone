@@ -54,6 +54,8 @@
             <Label x:Name="lblBindedType" Content="{Binding SelectedItem.SupplyType, ElementName=cmbMedicineList}" Height="25" Width="150" Margin="97,122,140,226" />
             <Label x:Name="lblDescription" Content="Description :" Margin="10,0,295,182" VerticalAlignment="Bottom" Height="25" Background="{x:Null}" Foreground="Black" FontSize="12"/>
 
+            
+            
             <TextBox x:Name="txtNotes" Height="92" TextWrapping="Wrap" Text="{Binding SelectedItem.SupplyDesc, ElementName=cmbMedicineList}"
               FontFamily="Microsoft JhengHei Light" FontSize="14" Margin="0,0,39,115" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="251" Background="{x:Null}" BorderBrush="#FF5F5F5F" Foreground="Black">
                 <TextBox.Resources>
@@ -84,13 +86,19 @@
                 </Border.Effect>
                 <Grid x:Name="gCart" Background="White" Margin="205,-163,-140,80">
 
-                    <TextBox x:Name="txtCart" Height="306" TextWrapping="Wrap" IsReadOnly="True"
-              FontFamily="Microsoft JhengHei Light" FontSize="14" Margin="0,0,10,57" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="291" Background="{x:Null}" BorderBrush="#FF5F5F5F" Foreground="Black">
+                    <TextBox x:Name="txtCart" Height="306" TextWrapping="Wrap" IsReadOnly="True" HorizontalScrollBarVisibility="Visible"
+                        VerticalScrollBarVisibility="Visible"
+              FontFamily="Microsoft JhengHei Light" FontSize="14" Margin="0,0,10,57" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="291" Background="{x:Null}" BorderBrush="#FF5F5F5F" Foreground="Black" >
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">
                                 <Setter Property="CornerRadius" Value="13"/>
+
                             </Style>
                         </TextBox.Resources>
+                        
+                        
+                        
+                   
                     </TextBox>
 
                     <Label Content="Total :"  VerticalAlignment="Bottom" Height="25" Background="{x:Null}" Foreground="Black" FontSize="12" Margin="10,0,256,32" />

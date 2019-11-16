@@ -15,11 +15,16 @@ using System.Windows.Shapes;
 
 namespace PharmacyDrone
 {
+
+
     /// <summary>
     /// Interaction logic for Login.xaml
     /// </summary>
     public partial class Login : Window
     {
+
+        
+
         Notify notifier = new Notify();
         public Login()
         {
@@ -32,6 +37,7 @@ namespace PharmacyDrone
         }
         public static int accountType;
         public static int userId;
+        public static string userName;
         bool flag = false;
         private void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
@@ -44,6 +50,7 @@ namespace PharmacyDrone
             {
                 User u = new User();
                 List<User> userList = u.readUsers();
+
 
 
                 foreach (User item in userList)
@@ -62,11 +69,12 @@ namespace PharmacyDrone
                                 {
                                     accountType = item.AccountType;
                                     userId = item.UserId;
-
+                                    userName = item.Username;
                                     Main m = new Main();
                                     m.Show();
                                     this.Close();
 
+                                    
 
                                     break;
                                 }
@@ -97,6 +105,7 @@ namespace PharmacyDrone
             }
         }
 
+        
         private void BtnRegister_Click(object sender, RoutedEventArgs e)
         {
             User u = new User(txtUsername.Text, txtPassword.Password, 0, 1);

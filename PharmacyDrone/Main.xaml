@@ -8,8 +8,13 @@
         Title="Welcome to Pharmacy Drone" Height="565.287" Width="927.238"  ResizeMode="NoResize" FontFamily="Microsoft YaHei Light" Background="#FFB2ADAD" Closed="Window_Closed">
     <Grid Margin="0,0,0,0">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="12"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="77.5"/>
+            <ColumnDefinition Width="13*"/>
+            <ColumnDefinition Width="43*"/>
+            <ColumnDefinition Width="498*"/>
+            <ColumnDefinition Width="247*"/>
             <ColumnDefinition Width="20"/>
 
 
@@ -20,7 +25,7 @@
 
         </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Vertical" >
+        <StackPanel Orientation="Vertical" Grid.ColumnSpan="3" >
             <Button x:Name="btnDispatch" HorizontalAlignment="Left" VerticalAlignment="Top" TabIndex="1" ToolTip="Click here to view Dispatch"
          Grid.Row="0" Width="100" BorderBrush="#27B331" Background="{x:Null}" Click="BtnDispatch_Click" >
                 <StackPanel>
@@ -66,8 +71,38 @@
                 </StackPanel>
             </Button>
         </StackPanel>
-        <ContentControl x:Name="Cc" Grid.Column="1">
 
+        <StackPanel Orientation="Vertical" Grid.Column="6">
+            <StackPanel>
+                <Label Content="Logged In As:"></Label>
+            </StackPanel>
+            <StackPanel>
+                <TextBox x:Name="txtUser" Background="Transparent"></TextBox>
+            </StackPanel>
+            <StackPanel>
+                <Label Foreground="Transparent" Background="Transparent"></Label>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Äbout Us:"></Label>
+            </StackPanel>
+            <Label x:Name="lblAboutUs" Height="306"   
+                        
+              FontFamily="Microsoft JhengHei Light" FontSize="14" Margin="0,0,10,57" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="291" Background="{x:Null}" BorderBrush="#FF5F5F5F" Foreground="Black" >
+                <Label.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="13"/>
+
+                    </Style>
+                </Label.Resources>
+
+
+
+
+            </Label>
+        </StackPanel>
+        <ContentControl x:Name="Cc" Grid.Column="6">
+            
+            
         </ContentControl>
 
 

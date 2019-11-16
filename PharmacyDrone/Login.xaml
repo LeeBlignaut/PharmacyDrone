@@ -29,6 +29,7 @@
         </ControlTemplate>
     </Window.Resources>
     <Grid>
+           
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="717*"/>
             <ColumnDefinition Width="89*"/>

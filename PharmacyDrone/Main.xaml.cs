@@ -20,6 +20,8 @@ namespace PharmacyDrone
     /// </summary>
     public partial class Main : Window
     {
+        
+
         Notify notifier = new Notify();
         public Main()
         {
@@ -41,8 +43,17 @@ namespace PharmacyDrone
             {
                 btnOrder.IsEnabled = false;
             }
+
+            txtUser.Text = Login.userName;
+
+            lblAboutUs.Content = "The Pharmacy Drone project is aimed at delivering \n" +
+                                 "medical products and aid to the remote rural areas \n" +
+                                 "of Africa. Bringing technology to the remote desolate\n" +
+                                 "areas.";
         }
 
+
+    
         private void BtnDispatch_Click(object sender, RoutedEventArgs e)
         {
             DispatchWindow dw = new DispatchWindow();
@@ -82,6 +93,7 @@ namespace PharmacyDrone
             this.Close();
         }
 
+        
       
     }
 }
