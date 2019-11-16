@@ -1,8 +1,10 @@
 ﻿using PharmacyDrone.Classes;
 using System;
 using System.Collections.Generic;
+using System.Device.Location;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -13,16 +15,21 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ToastNotifications;
 
 namespace PharmacyDrone
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    /// 
+   
     public partial class MainWindow : UserControl
     {
         List<Num> refinedOrderNum = new List<Num>();
         List<OrderRequest> orderRequestsList = new List<OrderRequest>();
+
+        Notify notify = new Notify();
         public MainWindow()
         {
            
@@ -31,6 +38,19 @@ namespace PharmacyDrone
             gOrderInfo.Visibility = Visibility.Hidden;
 
             OrderRequest or = new OrderRequest();
+
+
+            bool orderdelievered = (new OrderRequest()).UpdateState(Login.userId, 2);
+            if (orderdelievered)
+            {
+                GeoCoordinateWatcher watcher = new GeoCoordinateWatcher();
+                watcher.TryStart(false, TimeSpan.FromMilliseconds(1000));
+                Thread.Sleep(1000);
+                GeoCoordinate loc = watcher.Position.Location;
+
+                notify.success("you order has now been delievered to : " + loc.ToString());
+            }
+
 
 
             orderRequestsList = or.ReadRecentOrders(Login.userId);
@@ -55,6 +75,9 @@ namespace PharmacyDrone
 
             cmbOrderList.ItemsSource = refinedOrderNum;
             this.DataContext = refinedOrderNum;
+
+
+
 
         }
         public string orderInfo = " ";
