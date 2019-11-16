@@ -28,28 +28,20 @@ namespace PharmacyDrone
     {
         List<Num> refinedOrderNum = new List<Num>();
         List<OrderRequest> orderRequestsList = new List<OrderRequest>();
-
+        bool orderdelievered = false;
         Notify notify = new Notify();
         public MainWindow()
         {
            
             InitializeComponent();
-            System.Threading.Thread.Sleep(1000);
+            //System.Threading.Thread.Sleep(1000);
+            orderdelievered = (new OrderRequest()).UpdateState(Login.userId, 2);
             gOrderInfo.Visibility = Visibility.Hidden;
 
             OrderRequest or = new OrderRequest();
 
-
-            bool orderdelievered = (new OrderRequest()).UpdateState(Login.userId, 2);
-            if (orderdelievered)
-            {
-                GeoCoordinateWatcher watcher = new GeoCoordinateWatcher();
-                watcher.TryStart(false, TimeSpan.FromMilliseconds(1000));
-                Thread.Sleep(1000);
-                GeoCoordinate loc = watcher.Position.Location;
-
-                notify.success("you order has now been delievered to : " + loc.ToString());
-            }
+            
+            
 
 
 
@@ -75,7 +67,7 @@ namespace PharmacyDrone
 
             cmbOrderList.ItemsSource = refinedOrderNum;
             this.DataContext = refinedOrderNum;
-
+            
 
 
 
@@ -85,8 +77,18 @@ namespace PharmacyDrone
         int total = 0;
         private void cmbOrderList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            GeoCoordinate loc;
+            
+            if (orderdelievered)
+            {
+                GeoCoordinateWatcher watcher = new GeoCoordinateWatcher();
+                watcher.TryStart(false, TimeSpan.FromMilliseconds(1000));
+                Thread.Sleep(1000);
+                loc = watcher.Position.Location;
 
-        
+                notify.success("you order has now been delievered to : " + loc.ToString());
+            }
+
             gOrderInfo.Visibility = Visibility.Visible;
             orderInfo = " ";
             txtOrderInfo.Text = orderInfo;
@@ -150,6 +152,8 @@ namespace PharmacyDrone
                     lblStatus.Content = "Error";
                     break;
             }
+
+            
 
         }
     }

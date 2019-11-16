@@ -252,7 +252,7 @@ namespace PharmacyDrone.DataHandlers
                 return false;
             }
             else
-            {
+            {               
                 return true;
             }
 
