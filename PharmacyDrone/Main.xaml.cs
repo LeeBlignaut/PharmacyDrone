@@ -45,6 +45,8 @@ namespace PharmacyDrone
             else if(i==1) //If admin
             {
                 btnOrder.IsEnabled = false;
+                AboutUsWindow ab = new AboutUsWindow();
+                Cc.Content = ab;
             }
 
          

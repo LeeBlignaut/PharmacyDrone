@@ -91,7 +91,7 @@ namespace PharmacyDrone
             }
         }
 
-        
+        int check;
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
             int i = cmbStates.SelectedIndex + 1;
@@ -103,33 +103,35 @@ namespace PharmacyDrone
             }
             else
             {
+                
                 //checkbox
                 //lblac
-                int check = 0;
-                if (cbAdmin.IsChecked==true)
-                {
-                    check = 1;
-                }
                 User u = new User();
                 u.updateState(i, Convert.ToInt32(lblu.Content.ToString()),check);
                 notifier.success("Account Updated Succesfully");
 
-                //MainWindow main = new MainWindow();
-                //Content = main;
-                //How we will switch to about us page
+                AboutUsWindow main = new AboutUsWindow();
+                Content = main;
             }
 
         }
 
         private void cbAdmin_Checked(object sender, RoutedEventArgs e)
         {
-            cmbStates.IsEnabled = false;
+            
+            if(check == 0)
+            {
+                cmbStates.IsEnabled = false;
+                check = 1;
+            }
+            else
+            {
+                cmbStates.IsEnabled = true;
+                check = 0;
+            }
+            
         }
 
-        private void cbAdmin_Unchecked(object sender, RoutedEventArgs e)
-        {
-            cmbStates.IsEnabled = true;
-        }
     }
 
     public class States

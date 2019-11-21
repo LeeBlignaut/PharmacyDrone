@@ -76,7 +76,7 @@
 
 
 
-                    <CheckBox x:Name="cbAdmin" IsChecked="{Binding SelectedItem.AccountType , ElementName=dgvUsers}"  Margin="11,174,198,58" Checked="cbAdmin_Checked" Unchecked="cbAdmin_Unchecked">Make Admin</CheckBox>
+                    <CheckBox x:Name="cbAdmin" IsChecked="{Binding SelectedItem.AccountType , ElementName=dgvUsers}"  Margin="11,174,198,58" Checked="cbAdmin_Checked" Unchecked="cbAdmin_Checked">Make Admin</CheckBox>
                     
                     <Button x:Name="btnEdit" Content="Change" Width="84" Height="29" Margin="106,217,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Background="#FF36E824" Foreground="White" FontSize="16" BorderBrush="White" Cursor="Hand" Click="BtnEdit_Click">
                         <Button.Resources>
