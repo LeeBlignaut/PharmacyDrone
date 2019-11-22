@@ -5,57 +5,45 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PharmacyDrone"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    
+             Height="520.054" Width="850.324" Background="#FFB2ADAD" FontFamily="Microsoft JhengHei Light">
+
     <Border Width="500" HorizontalAlignment="Left" Margin="168,66,0,23" >
         <Border.Effect>
             <DropShadowEffect BlurRadius="10" Direction="600" Opacity="0.6" ShadowDepth="8"/>
         </Border.Effect>
-        
+
         <Grid HorizontalAlignment="Center" VerticalAlignment="Center"  >
-            <Image Source="images/AboutUsBack.jpg" Stretch="Fill" Height="558" VerticalAlignment="Bottom" Margin="0,-20,0,-97" Grid.ColumnSpan="2"/>
-            <StackPanel Margin="0,55,0,0">
-                <Label Content="About Us" HorizontalAlignment="Center" Foreground="White" FontSize="25"/>
+            <Image Source="images/AboutUsBack.jpg" Stretch="Fill" Height="608" VerticalAlignment="Bottom" Margin="-170,-69,-182,-108"/>
+            <StackPanel Margin="-57,10,-53,-108">
+                <Label Content="About Us" HorizontalAlignment="Center" Foreground="White" FontSize="25" Margin="192,0"/>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <Grid>
-                        <Image Source="images/damian.jpg" Stretch="Fill" Height="60" Width="60"/>
-                        <Label Content="Damian Smallwood" Foreground="White" FontSize="8" Margin="0,90,0,0"/>
+                        <Image Source="images/damian.jpg" Stretch="Fill" Height="100" Width="100" Margin="-26,6,26,5"/>
+                        <Label Content="Damian Smallwood" Foreground="White" FontSize="8" Margin="0,100,0,-11"/>
                     </Grid>
                     <Grid>
-                        <Image Source="images/brandon.jpeg" Stretch="Fill" Height="60" Width="60"/>
-                        <Label Content="Brandon-Lee Blignaut" Foreground="White" FontSize="8" Margin="0,90,0,0"/>
+                        <Image Source="images/brandon.jpeg" Stretch="Fill" Height="100" Width="100"/>
+                        <Label Content="Brandon-Lee Blignaut" Foreground="White" FontSize="8" Margin="16,100,-16,-10"/>
                     </Grid>
                     <Grid>
-                        <Image Source="images/pp.jpg" Stretch="Fill" Height="60" Width="60"/>
-                        <Label Content="Mohamed Kader" Foreground="White" FontSize="8" Margin="0,90,0,0"/>
+                        <Image Source="images/pp.jpg" Stretch="Fill" Height="100" Width="100" Margin="34,6,-34,5"/>
+                        <Label Content="Mohamed Kader" Foreground="White" FontSize="8" Margin="70,100,-70,-11"/>
                     </Grid>
                 </StackPanel>
                 <FlowDocumentReader>
                     <FlowDocument>
                         <Paragraph FontSize="10" Foreground="White">
-                            This application was developed by Damian Smallwood, Brandon-Lee Blignaut
-                            and Mohamed Kader as our third year project at Belgium Campus ITversity where we were 
-                            supposed to demonstrate the acquired knowledge and skills through the delivery of a project,
-                            in line with the exit level outcomes of the academic component of the qualification. 
-                            For the delivery of the project, the student is required to work in a multi-disciplinary team, 
-                            engaging with different stakeholders regularly to verify the satisfaction of the deliverable.
+                            <Run Text="This application was developed by Damian Smallwood, Brandon-Lee Blignaut and Mohamed Kader as our third year project at Belgium Campus ITversity where we were supposed to demonstrate the acquired knowledge and skills through the delivery of a project, in line with the exit level outcomes of the academic component of the qualification. For the delivery of the project, the student is required to work in a multi-disciplinary team, engaging with different stakeholders regularly to verify the satisfaction of the deliverable."/>
                         </Paragraph>
                         <Paragraph FontSize="10" Foreground="White">
-                            Pharmacy Drone was a solution to a problem that we saw , 
-                            that the devlivery of medical supplies to rural area's proved to be quite a challenge. 
-                            So we decided to try make use of the recent advancements in 
-                            Drone technology to increase availiblity of medical supplies.
-                            It is based around two parties , the patient and the supplier. 
-                            The patient can select what medical supplies they require and then place
-                            an order , the application will then use their current location to determine 
-                            where the order is needed to be delievered to and then the supplier will load up the droen and send it on its way
+                            <Run Text="Pharmacy Drone was a solution to a problem that we saw , that the devlivery of medical supplies to rural area's proved to be quite a challenge. So we decided to try make use of the recent advancements in Drone technology to increase availiblity of medical supplies. It is based around two parties , the patient and the supplier. The patient can select what medical supplies they require and then place an order , the application will then use their current location to determine where the order is needed to be delievered to and then the supplier will load up the droen and send it on its way"/>
                         </Paragraph>
-                        
+
                     </FlowDocument>
                 </FlowDocumentReader>
-                    
+
             </StackPanel>
         </Grid>
     </Border>
-    
+
 </UserControl>
