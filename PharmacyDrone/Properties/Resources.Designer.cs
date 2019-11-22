@@ -153,6 +153,16 @@ namespace PharmacyDrone.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap mo {
+            get {
+                object obj = ResourceManager.GetObject("mo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap order {
             get {
                 object obj = ResourceManager.GetObject("order", resourceCulture);
@@ -166,26 +176,6 @@ namespace PharmacyDrone.Properties {
         public static System.Drawing.Bitmap patients {
             get {
                 object obj = ResourceManager.GetObject("patients", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap pp {
-            get {
-                object obj = ResourceManager.GetObject("pp", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap pp___Copy {
-            get {
-                object obj = ResourceManager.GetObject("pp___Copy", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

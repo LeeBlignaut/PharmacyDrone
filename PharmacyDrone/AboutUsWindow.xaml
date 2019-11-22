@@ -13,10 +13,10 @@
         </Border.Effect>
 
         <Grid HorizontalAlignment="Center" VerticalAlignment="Center"  >
-            <Image Source="images/AboutUsBack.jpg" Stretch="Fill" Height="608" VerticalAlignment="Bottom" Margin="-170,-69,-182,-108"/>
+            <Image Source="images/AboutUsBack1.jpg" Stretch="Fill" Height="608" VerticalAlignment="Bottom" Margin="-170,-69,-182,-108"/>
             <StackPanel Margin="-57,10,-53,-108">
                 <Label Content="About Us" HorizontalAlignment="Center" Foreground="White" FontSize="25" Margin="192,0"/>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <!--<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <Grid>
                         <Image Source="images/damian.jpg" Stretch="Fill" Height="100" Width="100" Margin="-26,6,26,5"/>
                         <Label Content="Damian Smallwood" Foreground="White" FontSize="8" Margin="0,100,0,-11"/>
@@ -26,14 +26,14 @@
                         <Label Content="Brandon-Lee Blignaut" Foreground="White" FontSize="8" Margin="16,100,-16,-10"/>
                     </Grid>
                     <Grid>
-                        <Image Source="images/pp.jpg" Stretch="Fill" Height="100" Width="100" Margin="34,6,-34,5"/>
+                        <Image Source="images/mo.jpeg" Stretch="Fill" Height="100" Width="100" Margin="34,6,-34,5"/>
                         <Label Content="Mohamed Kader" Foreground="White" FontSize="8" Margin="70,100,-70,-11"/>
                     </Grid>
-                </StackPanel>
-                <FlowDocumentReader>
+                </StackPanel>-->
+                <FlowDocumentReader Margin="0,130,0,0">
                     <FlowDocument>
                         <Paragraph FontSize="10" Foreground="White">
-                            <Run Text="This application was developed by Damian Smallwood, Brandon-Lee Blignaut and Mohamed Kader as our third year project at Belgium Campus ITversity where we were supposed to demonstrate the acquired knowledge and skills through the delivery of a project, in line with the exit level outcomes of the academic component of the qualification. For the delivery of the project, the student is required to work in a multi-disciplinary team, engaging with different stakeholders regularly to verify the satisfaction of the deliverable."/>
+                            <Run Text="This application was developed by Damian Smallwood(Left), Brandon-Lee Blignaut(Middle) and Mohamed Kader(Right) as our third year project at Belgium Campus ITversity where we were supposed to demonstrate the acquired knowledge and skills through the delivery of a project, in line with the exit level outcomes of the academic component of the qualification. For the delivery of the project, the student is required to work in a multi-disciplinary team, engaging with different stakeholders regularly to verify the satisfaction of the deliverable."/>
                         </Paragraph>
                         <Paragraph FontSize="10" Foreground="White">
                             <Run Text="Pharmacy Drone was a solution to a problem that we saw , that the devlivery of medical supplies to rural area's proved to be quite a challenge. So we decided to try make use of the recent advancements in Drone technology to increase availiblity of medical supplies. It is based around two parties , the patient and the supplier. The patient can select what medical supplies they require and then place an order , the application will then use their current location to determine where the order is needed to be delievered to and then the supplier will load up the droen and send it on its way"/>

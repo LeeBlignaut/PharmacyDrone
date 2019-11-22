@@ -181,9 +181,9 @@
     <None Include="images\back.png" />
     <Resource Include="images\brandon.jpeg" />
     <Resource Include="images\damian.jpg" />
-    <None Include="images\pp.jpg" />
     <Resource Include="images\AboutUsBack.jpg" />
-    <None Include="images\pp - Copy.png" />
+    <None Include="images\mo.jpeg" />
+    <Resource Include="images\AboutUsBack1.jpg" />
     <Content Include="script.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
