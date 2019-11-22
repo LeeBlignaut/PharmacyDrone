@@ -183,6 +183,7 @@
     <Resource Include="images\damian.jpg" />
     <None Include="images\pp.jpg" />
     <Resource Include="images\AboutUsBack.jpg" />
+    <None Include="images\pp - Copy.png" />
     <Content Include="script.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

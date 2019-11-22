@@ -154,6 +154,9 @@
   <data name="pp" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\pp.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="pp___Copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\pp - Copy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="supplies" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\supplies.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

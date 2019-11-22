@@ -23,6 +23,9 @@ namespace PharmacyDrone
         public AboutUsWindow()
         {
             InitializeComponent();
+            
+            
+
         }
     }
 }
